@@ -41,8 +41,8 @@ public:
         /**
          * @brief Constructor.
          *
-         * @param reg Target CPU register model.  
-         * @param svc Supervisor call to the system.
+         * @param areg Target CPU register model.  
+         * @param asvc Supervisor call to the system.
          */
         Data(cpu::Registers& areg, api::Supervisor& asvc);
         
@@ -148,6 +148,7 @@ private:
 template <class A>
 NullResource<A>::NullResource(Data& data, Config const& config)
     : lib::NonCopyable<A>()
+    , Null()
     , data_( data )
     , config_( config )
     , mutex_() {
